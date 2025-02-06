@@ -17,7 +17,7 @@ Players=[
     Player("Mike", "Johnson", "24", "Forward", "10"),
     Player("Sara", "Smith", "23", "Center", "15"),
     Player("Anthony", "Brown", "21", "Guard", "25"),
-    Player("Noah", "Williams", "29", "Forward", "5"),
+    Player("Noah", "Rashed", "29", "Forward", "5"),
     Player("James", "Jones", "24", "Center", "10")
     ]
 
