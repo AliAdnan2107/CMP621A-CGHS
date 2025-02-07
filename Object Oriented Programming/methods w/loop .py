@@ -15,3 +15,12 @@ players = [Player("Lebron", "James", 35, "Point Guard", 30), Player("Kevin", "Du
 
 for player in players:
     player.print()
+
+    """
+    sammy constructed
+    sammy count 1
+    sammy count 2
+    jenny constructed
+    jenny count 1
+    80
+    """
