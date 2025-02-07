@@ -9,18 +9,9 @@ class Player:
     def print(self):
         print("The Player's Name is", self.firstname, self.lastname + ". The Player's Age is", self.age + ". The Player's Position is", self.position + ". The Player's Points are", self.points)
 
-    
-Players=[
-    Player("Ali", "Adnan", "25", "Forward", "30"),
-    Player("John", "Doe", "22", "Guard", "20"),
-    Player("Sara", "Smith", "23", "Center", "15"),
-    Player("Mike", "Johnson", "24", "Forward", "10"),
-    Player("Sara", "Smith", "23", "Center", "15"),
-    Player("Anthony", "Brown", "21", "Guard", "25"),
-    Player("Noah", "Rashed", "29", "Forward", "5"),
-    Player("James", "Jones", "24", "Center", "10")
-    ]
 
 
-for player in Players:
+players = [Player("Lebron", "James", 35, "Point Guard", 30), Player("Kevin", "Durant", 32, "Small Forward", 25), Player("Kawhi", "Leonard", 29, "Shooting Guard", 20)]
+
+for player in players:
     player.print()
