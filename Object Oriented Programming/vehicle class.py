@@ -15,26 +15,27 @@ class Vehicle:
     def __del__(self):
         print("Vehicle Destructed")
 
-Vehicles={
-    1: Vehicle("Toyota", "Corolla", 2019, 20000),
-    2: Vehicle("Honda", "Civic", 2018, 15000),
-    3: Vehicle("Ford", "Fiesta", 2017, 10000),
-    4: Vehicle("Nissan", "Sentra", 2025, 5000),
-    5: Vehicle("Chevrolet", "Cruze", 2025, 2500)
-}
+Vehicles=[
+    Vehicle("Toyota", "Corolla", 2019, 20000),
+    Vehicle("Honda", "Civic", 2018, 15000),
+    Vehicle("Ford", "Fiesta", 2017, 10000),
+    Vehicle("Nissan", "Sentra", 2025, 5000),
+    Vehicle("Chevrolet", "Cruze", 2025, 2500)
+]
 
 def VehiclePrint():
     print("")
     print ("[Make, Model]")
     print("")
-    for i in Vehicles:
-        vehicle=Vehicles[i]
-        print (i,":", vehicle.Make, vehicle.Model)
-#Main
+    for index, i in enumerate(Vehicles, start=1):
+        print (f"{index}. {i.Make} {i.Model}")
+
+#Main---------------------------------------
 
 print ("Welcome to the Car Rental Indexing system")
 print("")
 
+#Program Loop-------------------------------
 while True:
     print ("")
     print ("1. Display all vehicles")
@@ -44,18 +45,24 @@ while True:
     print ("5. Remove a vehicle")
     print ("6. Quit Program")
     choice=int(input("Select a Menu Choice by number: "))
+
+#Display All Vehicles----------------------------------
     if choice==1:
         print ("Here are the current index of vehicles")
         VehiclePrint()
+
+#Select a Vehicle To View-----------------------------------
     elif choice==2:
         print ("Select a vehicle to view")
         VehiclePrint()
         choice=int(input("Select a vehicle by number: "))
-        vehicle=Vehicles[choice]
+        vehicle=Vehicles[choice-1]
         print ("Make: ", vehicle.Make)
         print ("Model: ", vehicle.Model)
         print ("Year: ", vehicle.Year)
         print ("Mileage: ", vehicle.Mileage)
+
+#Update Mileage of Vehicle------------------------------------
     elif choice==3:
         print ("Select a vehicle to update mileage")
         VehiclePrint()
@@ -69,22 +76,31 @@ while True:
         print ("Model: ", vehicle.Model)
         print ("Year: ", vehicle.Year)
         print ("Mileage: ", vehicle.Mileage)
+
+#Add a new vehicle--------------------------------------------
     elif choice==4:
         print ("Enter the details of the new vehicle")
         make=input("Enter the make: ")
         model=input("Enter the model: ")
         year=int(input("Enter the year: "))
         mileage=int(input("Enter the mileage: "))
-        Vehicles[len(Vehicles)+1]=Vehicle(make, model, year, mileage)
+        newvehicle=Vehicle(make, model, year, mileage)
+        Vehicles.append(newvehicle)
         print ("Vehicle Added")
+
+#Remove a vehicle----------------------------------------------
     elif choice==5:
         print ("Select a vehicle to remove")
         VehiclePrint()
         choice=int(input("Select a vehicle by number: "))
-        del Vehicles[choice]
+        del Vehicles[choice-1]
         print ("Vehicle Removed")
+
+#Quit----------------------------------------------------------
     elif choice==6:
         print ("Thank you for using our software")
         break
+
+#Failsafe
     else:
         print ("Invalid input, Try again")
