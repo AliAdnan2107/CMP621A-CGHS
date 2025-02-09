@@ -56,46 +56,76 @@ while True:
     elif choice=="2":
         print ("Select a vehicle to view")
         VehiclePrint()
-        choice=int(input("Select a vehicle by number: "))
-        vehicle=Vehicles[choice-1]
-        print ("Make: ", vehicle.Make)
-        print ("Model: ", vehicle.Model)
-        print ("Year: ", vehicle.Year)
-        print ("Mileage: ", vehicle.Mileage)
+        choice=input("Select a vehicle by number: ")
+        if choice.isdigit():
+            choice=int(choice)
+            vehicle=Vehicles[choice-1]
+            print ("Make: ", vehicle.Make)
+            print ("Model: ", vehicle.Model)
+            print ("Year: ", vehicle.Year)
+            print ("Mileage: ", vehicle.Mileage)
+        else:
+            print ("Invalid input, try again")
+            continue
 
 #Update Mileage of Vehicle------------------------------------
     elif choice=="3":
         print ("Select a vehicle to update mileage")
         VehiclePrint()
-        choice=int(input("Select a vehicle by number: "))
-        vehicle=Vehicles[choice-1]
-        mileage=int(input("Enter the new mileage: "))
-        vehicle.Mileage=mileage
-        print ("Mileage Updated")
-        print ("Updated Information for Vehicle:")
-        print ("Make: ", vehicle.Make)
-        print ("Model: ", vehicle.Model)
-        print ("Year: ", vehicle.Year)
-        print ("Mileage: ", vehicle.Mileage)
+        choice=input("Select a vehicle by number: ")
+        if choice.isdigit():
+            choice=int(choice)
+            vehicle=Vehicles[choice-1]
+            mileage=input("Enter the new mileage: ")
+            if mileage.isdigit():
+                mileage=int(mileage)
+                vehicle.Mileage=mileage
+                print ("Mileage Updated")
+                print ("Updated Information for Vehicle:")
+                print ("Make: ", vehicle.Make)
+                print ("Model: ", vehicle.Model)
+                print ("Year: ", vehicle.Year)
+                print ("Mileage: ", vehicle.Mileage)
+            else:
+                print("Invalid input, try again")
+                continue
+        else:
+            print("Invalid input, try again")
+            continue
 
 #Add a new vehicle--------------------------------------------
     elif choice=="4":
         print ("Enter the details of the new vehicle")
         make=input("Enter the make: ")
         model=input("Enter the model: ")
-        year=int(input("Enter the year: "))
-        mileage=int(input("Enter the mileage: "))
-        newvehicle=Vehicle(make, model, year, mileage)
-        Vehicles.append(newvehicle)
-        print ("Vehicle Added")
+        year=input("Enter the year: ")
+        if year.isdigit():
+            year=int(year)
+        else:
+            print ("Invalid input, Try Again")
+            continue
+        mileage=input("Enter the mileage: ")
+        if mileage.isdigit():
+            mileage=int(mileage)
+        else:
+            print ("Invalid input, try Again")
+            continue
+        if mileage==int(mileage) and year==int(year):
+            newvehicle=Vehicle(make, model, year, mileage)
+            Vehicles.append(newvehicle)
+            print ("Vehicle Added")
 
 #Remove a vehicle----------------------------------------------
     elif choice=="5":
         print ("Select a vehicle to remove")
         VehiclePrint()
-        choice=int(input("Select a vehicle by number: "))
-        del Vehicles[choice-1]
-        print ("Vehicle Removed")
+        choice=input("Select a vehicle by number: ")
+        if choice.isdigit():
+            del Vehicles[choice-1]
+            print ("Vehicle Removed")
+        else:
+            print("Invalid input, Try Again")
+            continue
 
 #Quit----------------------------------------------------------
     elif choice=="6":
@@ -105,3 +135,4 @@ while True:
 #Failsafe
     else:
         print ("Invalid input, Try again")
+        continue
