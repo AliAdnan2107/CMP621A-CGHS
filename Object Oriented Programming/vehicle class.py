@@ -25,10 +25,10 @@ Vehicles=[
 
 def VehiclePrint():
     print("")
-    print ("[Make, Model]")
-    print("")
     for index, i in enumerate(Vehicles, start=1):
         print (f"{index}. {i.Make} {i.Model}")
+
+
 
 #Main---------------------------------------
 
@@ -44,15 +44,16 @@ while True:
     print ("4. Add a new vehicle")
     print ("5. Remove a vehicle")
     print ("6. Quit Program")
-    choice=int(input("Select a Menu Choice by number: "))
+    choice=input("Select a Menu Choice by number: ")
+
 
 #Display All Vehicles----------------------------------
-    if choice==1:
+    if choice=="1":
         print ("Here are the current index of vehicles")
         VehiclePrint()
 
 #Select a Vehicle To View-----------------------------------
-    elif choice==2:
+    elif choice=="2":
         print ("Select a vehicle to view")
         VehiclePrint()
         choice=int(input("Select a vehicle by number: "))
@@ -63,11 +64,11 @@ while True:
         print ("Mileage: ", vehicle.Mileage)
 
 #Update Mileage of Vehicle------------------------------------
-    elif choice==3:
+    elif choice=="3":
         print ("Select a vehicle to update mileage")
         VehiclePrint()
         choice=int(input("Select a vehicle by number: "))
-        vehicle=Vehicles[choice]
+        vehicle=Vehicles[choice-1]
         mileage=int(input("Enter the new mileage: "))
         vehicle.Mileage=mileage
         print ("Mileage Updated")
@@ -78,7 +79,7 @@ while True:
         print ("Mileage: ", vehicle.Mileage)
 
 #Add a new vehicle--------------------------------------------
-    elif choice==4:
+    elif choice=="4":
         print ("Enter the details of the new vehicle")
         make=input("Enter the make: ")
         model=input("Enter the model: ")
@@ -89,7 +90,7 @@ while True:
         print ("Vehicle Added")
 
 #Remove a vehicle----------------------------------------------
-    elif choice==5:
+    elif choice=="5":
         print ("Select a vehicle to remove")
         VehiclePrint()
         choice=int(input("Select a vehicle by number: "))
@@ -97,7 +98,7 @@ while True:
         print ("Vehicle Removed")
 
 #Quit----------------------------------------------------------
-    elif choice==6:
+    elif choice=="6":
         print ("Thank you for using our software")
         break
 
