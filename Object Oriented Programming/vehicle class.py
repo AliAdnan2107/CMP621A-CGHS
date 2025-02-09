@@ -121,6 +121,7 @@ while True:
         VehiclePrint()
         choice=input("Select a vehicle by number: ")
         if choice.isdigit():
+            choice=int(choice)
             del Vehicles[choice-1]
             print ("Vehicle Removed")
         else:
