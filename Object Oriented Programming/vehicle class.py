@@ -12,21 +12,41 @@ class Vehicle: #Main Vehicle Class
         self.Year = Year
         self.Mileage = Mileage
         print("Vehicle Constructed")
+
     def __del__(self):
         print("Vehicle Destructed")
+
+    def isclassic(self):
+        if vehicle.Year<=2005:
+            classic = f"{vehicle.Model} is a classic" 
+        else:
+            classic = f"{vehicle.Model} is modern" 
 
 Vehicles=[   #Initial List of Vehicles
     Vehicle("Toyota", "Corolla", 2019, 20000),
     Vehicle("Honda", "Civic", 2018, 15000),
     Vehicle("Ford", "Fiesta", 2017, 10000),
     Vehicle("Nissan", "Sentra", 2025, 5000),
-    Vehicle("Chevrolet", "Cruze", 2025, 2500)
+    Vehicle("Chevrolet", "Cruze", 2025, 2500),
+    Vehicle("Ford","Mustang", 1964, 5000),
+    Vehicle("Plymouth","Barracuda",1970,4000),
+    Vehicle("Chevrolet", "Impala", 1965, 2000),
+    Vehicle("Dodge","Charger",1968,45000)
 ]
 
 def VehiclePrint(): #A function that will print the list of vehicles when needed
     print("")
     for index, i in enumerate(Vehicles, start=1):
         print (f"{index}. {i.Make} {i.Model}")
+
+def ClassicVehiclePrint():
+    print("")
+    for i in Vehicles:
+        if i.Year<=2005:
+            print (f"{i.Make} {i.Model}")
+        else:
+            continue
+
 
 
 
@@ -43,7 +63,8 @@ while True:
     print ("3. Update the mileage of a vehicle")
     print ("4. Add a new vehicle")
     print ("5. Remove a vehicle")
-    print ("6. Quit Program")
+    print ("6. Search Classic Vehicles")
+    print ("7. Quit Program")
     choice=input("Select a Menu Choice by number: ")
 
 
@@ -128,8 +149,15 @@ while True:
             print("Invalid input, Try Again")
             continue
 
-#Quit----------------------------------------------------------
+
+#Find Classic Vehicles-----------------------------------------
+
     elif choice=="6":
+        print ("Here are the current index of classic vehicles")
+        ClassicVehiclePrint()
+
+#Quit----------------------------------------------------------
+    elif choice=="7":
         print ("Thank you for using our software")
         break
 
