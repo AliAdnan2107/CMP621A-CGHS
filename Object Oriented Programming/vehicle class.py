@@ -16,11 +16,6 @@ class Vehicle: #Main Vehicle Class
     def __del__(self):
         print("Vehicle Destructed")
 
-    def isclassic(self):
-        if vehicle.Year<=2005:
-            classic = f"{vehicle.Model} is a classic" 
-        else:
-            classic = f"{vehicle.Model} is modern" 
 
 Vehicles=[   #Initial List of Vehicles
     Vehicle("Toyota", "Corolla", 2019, 20000),
@@ -39,7 +34,7 @@ def VehiclePrint(): #A function that will print the list of vehicles when needed
     for index, i in enumerate(Vehicles, start=1):
         print (f"{index}. {i.Make} {i.Model}")
 
-def ClassicVehiclePrint():
+def ClassicVehiclePrint(): #A function that will print a list of classic vehicles when called
     print("")
     for i in Vehicles:
         if i.Year<=2005:
