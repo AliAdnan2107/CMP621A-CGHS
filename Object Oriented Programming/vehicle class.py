@@ -5,7 +5,7 @@
 
 #Variables and Classes
 
-class Vehicle:
+class Vehicle: #Main Vehicle Class
     def __init__(self, Make, Model, Year, Mileage):
         self.Make = Make
         self.Model = Model
@@ -15,7 +15,7 @@ class Vehicle:
     def __del__(self):
         print("Vehicle Destructed")
 
-Vehicles=[
+Vehicles=[   #Initial List of Vehicles
     Vehicle("Toyota", "Corolla", 2019, 20000),
     Vehicle("Honda", "Civic", 2018, 15000),
     Vehicle("Ford", "Fiesta", 2017, 10000),
@@ -23,7 +23,7 @@ Vehicles=[
     Vehicle("Chevrolet", "Cruze", 2025, 2500)
 ]
 
-def VehiclePrint():
+def VehiclePrint(): #A function that will print the list of vehicles when needed
     print("")
     for index, i in enumerate(Vehicles, start=1):
         print (f"{index}. {i.Make} {i.Model}")
@@ -57,7 +57,7 @@ while True:
         print ("Select a vehicle to view")
         VehiclePrint()
         choice=input("Select a vehicle by number: ")
-        if choice.isdigit():
+        if choice.isdigit(): #Failsafe
             choice=int(choice)
             vehicle=Vehicles[choice-1]
             print ("Make: ", vehicle.Make)
