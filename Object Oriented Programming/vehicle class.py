@@ -14,7 +14,7 @@ class Vehicle: #Main Vehicle Class
         print("Vehicle Constructed")
 
     def __del__(self):
-        print("Vehicle Destructed")
+        print(f"{self.Model} Destructed")
 
 
 Vehicles=[   #Initial List of Vehicles
