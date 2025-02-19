@@ -12,6 +12,8 @@ class Music:
         self.Genre=Genre
         self.ReleaseYear=ReleaseYear
         self.Rating=Rating
+    def __str__(self):
+        return f"{self.Name} is a form of music"
     def tellall(self):
         print ("Name:", self.Name,)
         print ("Genre:", self.Genre)
@@ -65,17 +67,27 @@ playlistlist=[
 
 #Main-----------------------------
 
+#Print All Albums and their information-----------------------------
 for album in albumlist:
     album.tellall()
     album.tell()
-    print()
+    print("")
+    print(album)
+    print("")
 
+
+#Print All songs and their information--------------------------------
 for song in songlist:
     song.tellall()
     song.tell()
-    print()
+    print("")
+    print(song)
+    print("")
 
+#Print All Playlists and their information----------------------------
 for playlist in playlistlist:
     playlist.tellall()
     playlist.tell()
-    print()
+    print("")
+    print(playlist)
+    print("")
