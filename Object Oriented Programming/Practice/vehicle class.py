@@ -129,6 +129,7 @@ while True:
         if mileage==int(mileage) and year==int(year):
             newvehicle=Vehicle(make, model, year, mileage)
             Vehicles.append(newvehicle)
+            del newvehicle
             print ("Vehicle Added")
             newvehicle=""
 
