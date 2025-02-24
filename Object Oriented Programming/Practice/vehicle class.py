@@ -131,6 +131,7 @@ while True:
             Vehicles.append(newvehicle)
             del newvehicle
             print ("Vehicle Added")
+            newvehicle=""
 
 #Remove a vehicle----------------------------------------------
     elif choice=="5":
@@ -149,7 +150,7 @@ while True:
 #Find Classic Vehicles-----------------------------------------
 
     elif choice=="6":
-        print ("Here are the current index of classic vehicles")
+        print ("Here is the current index of classic vehicles")
         ClassicVehiclePrint()
 
 #Quit----------------------------------------------------------
