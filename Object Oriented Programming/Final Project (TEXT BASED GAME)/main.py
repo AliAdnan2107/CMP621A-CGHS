@@ -42,7 +42,7 @@ def Sleep():
     time.sleep(2)
 
 def Game():
-   
+   IntroScene()
     
 
 
