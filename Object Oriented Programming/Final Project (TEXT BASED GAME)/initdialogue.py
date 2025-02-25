@@ -30,3 +30,5 @@ def IntroScene():
     print (f"{username}: The Name's {username}, and you are?")
     Sleep()
     print ("ALLOY: I'm alloy, I found you lying in the woods after you we're betrayed, Thought you were dead")
+    Sleep()
+    
