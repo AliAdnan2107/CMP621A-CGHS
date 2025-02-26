@@ -5,14 +5,17 @@
 
 
 class Characters:
-    def __init__ (self, Name, Health, XP,):
+    def __init__ (self, Name, Health, Strength,):
         self.Name=Name
         self.Health=Health
-        self.XP=XP
+        self.Strength=Strength
 
 class Foe(Characters):
-    def __init__(self, Name, Health, XP, EvilnessMeter):
-        Characters.__init__(self, Name, Health, XP)
+    def __init__(self, Name, Health, Strength, EvilnessMeter):
+        Characters.__init__(self, Name, Health, Strength)
         self.EvilnessMeter=EvilnessMeter
 
-    
+class MainCharacters(Characters):
+    def __init__(self, Name, Health, Strength, XP ):
+        Characters.__init__(self, Name, Health, Strength)
+        self.XP=XP

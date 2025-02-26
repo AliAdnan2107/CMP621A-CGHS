@@ -6,7 +6,10 @@
 
 '''
 TODO-
-everything...
+-Finish initial Dialogue
+-Create Characters in character.py
+-Plot and Create "Rooms"
+
 '''
 #Imports
 import time

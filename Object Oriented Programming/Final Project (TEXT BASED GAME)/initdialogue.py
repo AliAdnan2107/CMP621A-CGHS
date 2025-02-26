@@ -29,6 +29,10 @@ def IntroScene():
     username=input("Type in your name: ")
     print (f"{username}: The Name's {username}, and you are?")
     Sleep()
-    print ("ALLOY: I'm alloy, I found you lying in the woods after you we're betrayed, Thought you were dead")
+    print ("ALLOY: I'm alloy, I found you lying in the woods after you were betrayed I assume, Thought you were dead")
     Sleep()
-    
+    print (f"{username}: Well then, I suppose I can either continue to lie here")
+    Sleep()
+    print (f"{username}: Or Avenge myself.")
+    Sleep()
+    print ("-----------DIALOGUE END-----------")
