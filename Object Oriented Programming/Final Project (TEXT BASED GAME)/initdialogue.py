@@ -2,7 +2,7 @@
 
 import time
 def Sleep():
-    time.sleep(2)
+    time.sleep(1.5)
 def IntroScene():
     print("")
     print ("UNKNOWN: You're awake")
