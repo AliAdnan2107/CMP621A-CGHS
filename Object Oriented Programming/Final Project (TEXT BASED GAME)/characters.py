@@ -3,14 +3,16 @@
 #February 21st 2025
 #PROJECT TEXT BASED GAME - CHARACTERS
 
-from initdialogue import *
-
+from tokenize import Name
 
 class Characters:
     def __init__ (self, Name, Health, Strength,):
         self.Name=Name
         self.Health=Health
         self.Strength=Strength
+    def __str__(self):
+        return ("Name: ", self.Name )("Health: ", self.Health)("Strength: ", self.Strength) ("XP : ", self.XP)
+
 
 class Foe(Characters):
     def __init__(self, Name, Health, Strength, EvilnessMeter):
@@ -29,8 +31,3 @@ class MainCharacters(Characters):
 
 
 
-def BuildPick():
-    print ("Select your initial build: ")
-    print ("1 - 150 Health, 60 Strength, 20XP")
-    print ("2 - 100 Health, 80 Strength, 40XP")
-    print ("3 - 80 Health, 120 Strength, 30XP")

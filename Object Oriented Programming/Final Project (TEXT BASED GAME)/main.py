@@ -6,10 +6,8 @@
 
 '''
 TODO-
--Finish initial Dialogue
 -Create Characters in character.py
 -Plot and Create "Rooms"
-
 '''
 #Imports
 import time
@@ -41,8 +39,27 @@ def Menu():
         else:
             "failsafe"
 
+def BuildPick():
+    from initdialogue import username
+    print ("Select your initial build: ")
+    print ("1 - 150 Health, 60 Strength, 20XP")
+    print ("2 - 100 Health, 80 Strength, 40XP")
+    print ("3 - 80 Health, 120 Strength, 30XP")
+    buildinput=int(input("Pick a number: "))
+    if buildinput==1:
+        MAINCHARACTER=MainCharacters(username, 150, 60, 20)
+        print (f"Your Character {MAINCHARACTER.Name} has been built with these features")
+        print (MAINCHARACTER)
+    elif buildinput==2:
+        "build 2"
+    elif buildinput==3:
+        "build 3"
+    else:
+        "failsafe"
+
 def Game():
    IntroScene()
+   BuildPick()
     
 
 

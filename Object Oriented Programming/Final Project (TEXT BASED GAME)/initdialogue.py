@@ -26,6 +26,7 @@ def IntroScene():
     print ("YOU: THE Sword.")
     Sleep()
     print ("UNKNOWN: What's your name partner?")
+    global username
     username=input("Type in your name: ")
     print (f"{username}: The Name's {username}, and you are?")
     Sleep()
@@ -36,3 +37,4 @@ def IntroScene():
     print (f"{username}: Or Avenge myself.")
     Sleep()
     print ("-----------DIALOGUE END-----------")
+
