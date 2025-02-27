@@ -10,8 +10,10 @@ class Characters:
         self.Name=Name
         self.Health=Health
         self.Strength=Strength
-    def __str__(self):
-        return ("Name: ", self.Name )("Health: ", self.Health)("Strength: ", self.Strength) ("XP : ", self.XP)
+    def tell(self):
+        print ("Name: ", self.Name )
+        print ("Health: ", self.Health)
+        print ("Strength: ", self.Strength) 
 
 
 class Foe(Characters):
@@ -28,6 +30,5 @@ class MainCharacters(Characters):
     def __init__(self, Name, Health, Strength, XP ):
         Characters.__init__(self, Name, Health, Strength)
         self.XP=XP
-
-
-
+    def __str__(self):
+        return f"Your Character currently has {self.XP} XP, When you increase your XP you increase your other attributes"

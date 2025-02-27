@@ -6,13 +6,15 @@
 
 '''
 TODO-
--Create Characters in character.py
+-Create Side Characters in character.py
 -Plot and Create "Rooms"
+-Implement Failsafes
 '''
-#Imports
+
+#Imports ------------------------------------------------
 import time
 from characters import *
-from initdialogue import *
+from scenes import *
 
 
 
@@ -40,7 +42,7 @@ def Menu():
             "failsafe"
 
 def BuildPick():
-    from initdialogue import username
+    from scenes import username
     print ("Select your initial build: ")
     print ("1 - 150 Health, 60 Strength, 20XP")
     print ("2 - 100 Health, 80 Strength, 40XP")
@@ -49,17 +51,40 @@ def BuildPick():
     if buildinput==1:
         MAINCHARACTER=MainCharacters(username, 150, 60, 20)
         print (f"Your Character {MAINCHARACTER.Name} has been built with these features")
+        MAINCHARACTER.tell()
         print (MAINCHARACTER)
+        print ("")
+        
     elif buildinput==2:
-        "build 2"
+        MAINCHARACTER=MainCharacters(username, 100, 80, 40)
+        print (f"Your Character {MAINCHARACTER.Name} has been built with these features")
+        MAINCHARACTER.tell()
+        print (MAINCHARACTER)
+        print ("")
     elif buildinput==3:
-        "build 3"
+        MAINCHARACTER=MainCharacters(username, 80, 120, 30)
+        print (f"Your Character {MAINCHARACTER.Name} has been built with these features")
+        MAINCHARACTER.tell()
+        print (MAINCHARACTER)
+        print ("")
     else:
         "failsafe"
 
 def Game():
    IntroScene()
    BuildPick()
+   MidScene()
+   userinput=input("Ready to start? (Y/N) : ")
+   if userinput=="Y":
+       pass
+   elif userinput=="N":
+       quitinput=input("This will return you to main menu, Confirm? (Y/N) : ")
+       if quitinput=="Y":
+           Menu()
+       elif quitinput=="N":
+            pass
+   Scene1() 
+    
     
 
 

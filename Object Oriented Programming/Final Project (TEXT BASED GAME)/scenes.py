@@ -1,6 +1,8 @@
 #CREATED BY ALI ADNAN
 
 import time
+def SleepExtended():
+    time.sleep(2.5)
 def Sleep():
     time.sleep(1.5)
 def IntroScene():
@@ -38,3 +40,29 @@ def IntroScene():
     Sleep()
     print ("-----------DIALOGUE END-----------")
 
+def MidScene():
+    print ("ALLOY: I will be your personal sidekick as you go through this journey.")
+    Sleep()
+    print ("ALLOY: Whenever you need advice, Select the number that corresponds with me")
+    Sleep()
+    print (f"ALLOY: Good Luck, {username}.")
+    Sleep()
+    print ("You start off in a shady but safe area, There are three directions you can proceed through")
+    print("")
+    Sleep()
+    print ("North takes you to The Hidden Dungeon, the dungeon no one has dared to touch as it leads to the master's hut")
+    print("")
+    SleepExtended()
+    print ("East takes you to The Woods, its dark and scary in there! But it will prepare you for what's to come")
+    print("")
+    SleepExtended()
+    print ("West takes you to the Vast Dungeon, Slightly less scary than the woods but will also prepare you pretty well")
+    print("")
+    SleepExtended()
+    print ("As you proceed through these areas, there will be Friends to guide you along the way or provide you with weapons, health etc.")
+    print("")
+    SleepExtended()
+    
+
+def Scene1():
+    "scene 1"
