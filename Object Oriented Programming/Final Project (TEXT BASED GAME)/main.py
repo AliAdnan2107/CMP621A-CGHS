@@ -15,6 +15,7 @@ TODO-
 import time
 from characters import *
 from scenes import *
+from rooms import *
 
 
 
@@ -69,6 +70,8 @@ def BuildPick():
         print ("")
     else:
         "failsafe"
+
+
 
 def Game():
    IntroScene()

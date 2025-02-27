@@ -1,6 +1,7 @@
 #CREATED BY ALI ADNAN
 
 import time
+import rooms
 def SleepExtended():
     time.sleep(2.5)
 def Sleep():
@@ -65,4 +66,5 @@ def MidScene():
     
 
 def Scene1():
-    "scene 1"
+    from rooms import SafeZone
+    SafeZone()
