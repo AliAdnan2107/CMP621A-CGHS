@@ -55,7 +55,6 @@ def BuildPick():
         MAINCHARACTER.tell()
         print (MAINCHARACTER)
         print ("")
-        
     elif buildinput==2:
         MAINCHARACTER=MainCharacters(username, 100, 80, 40)
         print (f"Your Character {MAINCHARACTER.Name} has been built with these features")
@@ -86,7 +85,7 @@ def Game():
            Menu()
        elif quitinput=="N":
             pass
-   Scene1() 
+   Scene1()
     
     
 

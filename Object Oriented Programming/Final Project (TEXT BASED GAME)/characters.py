@@ -32,3 +32,8 @@ class MainCharacters(Characters):
         self.XP=XP
     def __str__(self):
         return f"Your Character currently has {self.XP} XP, When you increase your XP you increase your other attributes"
+
+
+
+Foe1=Foe("Zombie", "40", "70","30")
+Alloy=MainCharacters("Alloy","100","100","100")

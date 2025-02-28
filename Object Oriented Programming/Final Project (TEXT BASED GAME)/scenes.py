@@ -1,7 +1,6 @@
 #CREATED BY ALI ADNAN
 
 import time
-import rooms
 def SleepExtended():
     time.sleep(2.5)
 def Sleep():
