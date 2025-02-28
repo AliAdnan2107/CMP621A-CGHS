@@ -2,6 +2,7 @@
 #CMP621A
 #February 21st 2025
 #PROJECT TEXT BASED GAME - ROOMS
+from this import d
 import time
 import random
 def Sleep():
@@ -40,6 +41,7 @@ def SafeZone():
             print ("1 - Additional Health")
             print ("2 - Additional Strength")
             print ("3 - Professional Advice")
+            print ("4 - Tools")
             input1=int(input("Select a choice: "))
             if input1==1:
                 "additional health"
@@ -47,6 +49,8 @@ def SafeZone():
                 "additional strength"
             elif input1==3:
                 "professional advice"
+            elif input1==4:
+                "tools"
         elif userinput==2:
             randomnumgen=random.randint(1,3)
             if randomnumgen==1:
@@ -56,9 +60,10 @@ def SafeZone():
             elif randomnumgen==3:
                 print ("LLOYD: Maybe order some of my professional advice, where I will give you confidential information about some of these zones! Check my store.")
         elif userinput==3:
-            "leave to explore"
+            SafeZoneShop=False
+            TravelFromSafeZone()
         elif userinput==4:
-            "talk to alloy"
+            print ("ALLOY: You are currently in the safezone, nothing can harm you here. Talk to Lloyd to purchase certain services and tools or go to explore the rest of the areas")
 
 def TheWoods():
     from scenes import Foe1
@@ -83,6 +88,9 @@ def TheVast():
 def TheHiddenDungeon():
     from scenes import username
 
+def TheMastersHut():
+    "the masters hut"
+
 
 
 
@@ -94,12 +102,12 @@ def TravelFromSafeZone():
     print ("3- Go North (The Hidden Dungeon)")
     userinput=int(input("Make your Choice: "))
     if userinput==1:
-        "west"
+        TheVast()
     if userinput==2:
-        "east"
+        TheWoods()
     if userinput==3:
         if statusunlocked==True:
-            "north"
+            TheHiddenDungeon()
         elif statusunlocked==False:
             print ("You have not unlocked this zone yet!, Discover all the other areas to unlock")
         
