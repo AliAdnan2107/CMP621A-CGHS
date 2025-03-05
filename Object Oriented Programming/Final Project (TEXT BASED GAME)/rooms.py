@@ -111,3 +111,8 @@ def TravelFromSafeZone():
         elif statusunlocked==False:
             print ("You have not unlocked this zone yet!, Discover all the other areas to unlock")
         
+def TravelFromVastDungeon():
+
+def TravelFromTheWoods():
+
+def TravelFromTheHiddenDungeon():
