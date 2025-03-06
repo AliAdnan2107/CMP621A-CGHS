@@ -2,7 +2,7 @@
 #CMP621A
 #February 21st 2025
 #PROJECT TEXT BASED GAME - ROOMS
-from this import d
+
 import time
 import random
 def Sleep():
@@ -112,7 +112,8 @@ def TravelFromSafeZone():
             print ("You have not unlocked this zone yet!, Discover all the other areas to unlock")
         
 def TravelFromVastDungeon():
-
+    ""
 def TravelFromTheWoods():
-
+    ""
 def TravelFromTheHiddenDungeon():
+    "+"
