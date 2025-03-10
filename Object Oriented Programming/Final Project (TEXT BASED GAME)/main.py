@@ -4,6 +4,7 @@
 # PROJECT TEXT BASED GAME
 
 import time
+import random
 from characters import *
 
 # Global Variables
@@ -65,8 +66,11 @@ def MidScene():
     SleepExtended()
     print(f"ALLOY: Good luck, {username}.")
     SleepExtended()
+    print("")
 
 def Scene1():
+    SafeZoneScene()
+    print("")
     SafeZone()
 
 def Fight():
@@ -77,10 +81,22 @@ def Fight():
         userinput = int(input("Select a choice: "))
 
         if userinput == 1:
-            print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
-            print("FOE: I don't care who you are dude, my sole purpose is attacking you")
-            print(f"{MAINCHARACTER.Name}: Is there any way I can win you over?")
-            print("FOE: No, just no.")
+            randint=random.randint(1, 3)
+            if randint == 1:
+                print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
+                print("FOE: I don't care who you are dude, my sole purpose is attacking you")
+                print(f"{MAINCHARACTER.Name}: Is there any way I can win you over?")
+                print("FOE: No, just no.")
+            elif randint == 2:
+                print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
+                print("FOE: I don't care who you are dude, my sole purpose is attacking you")
+                print(f"{MAINCHARACTER.Name}: Can we talk this out?")
+                print("FOE: No, just no.")
+            elif randint == 3:
+                print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
+                print("FOE: I don't care who you are dude, my sole purpose is attacking you")
+                print(f"{MAINCHARACTER.Name}: Can we be friends?")
+                print("FOE: No, just no.")
         elif userinput == 2:
             print("What would you like to battle the foe with?")
             print("1 - Sword")
@@ -97,10 +113,32 @@ def Fight():
                 print("Invalid choice, try again.")
                 continue
             print(f"You have chosen the {combat_item}")
-            print("You have defeated the foe")
+            randint = random.randint(1, 4)
+            if randint == 1:
+                print("You have defeated the foe, gained Strength and XP")
+                MAINCHARACTER.Strength += 10
+                MAINCHARACTER.XP += 10
+            elif randint ==2:
+                print("You have been defeated by the foe, Lost health and XP")
+                MAINCHARACTER.Health -= 10
+                MAINCHARACTER.XP -= 10
+            elif randint == 3:
+                print("You have defeated the foe, gained Strength and XP")
+                MAINCHARACTER.Strength += 20
+                MAINCHARACTER.XP += 20
+            elif randint == 4:
+                print("You have been defeated by the foe, Lost health and XP")
+                MAINCHARACTER.Health -= 20
+                MAINCHARACTER.XP -= 20
             break  # Exit loop after battle
         elif userinput == 3:
-            print("You have fled the foe")
+            randint = random.randint(1, 2)
+            if randint == 1:
+                print("You have fled the foe")
+            elif randint == 2:
+                print ("The Foe got to you, lost health and XP")
+                MAINCHARACTER.Health -= 10
+                MAINCHARACTER.XP -= 10
             break  # Exit loop after fleeing
         else:
             print("Invalid choice, try again.")
@@ -132,15 +170,18 @@ def TravelFromSafeZone():
         userinput = int(input("1 - Go West (Vast Dungeon)\n2- Go East (The Woods)\n3- Go North (The Hidden Dungeon)\nMake your Choice: "))
         if userinput == 1:
             TheVast()
+            break
         elif userinput == 2:
             TheWoods()
+            break
         elif userinput == 3:
             if statusunlocked:
                 TheHiddenDungeon()
+                break
             else:
                 print("You have not unlocked this zone yet! Discover all areas to unlock")
         else:
-            print("You have not unlocked this zone yet! Discover all areas to unlock")
+            print("Invalid Input, Try again.")
 
 def TravelFromHiddenDungeon():
     while True:
@@ -151,16 +192,50 @@ def TravelFromHiddenDungeon():
         else:
             print("Invalid input, try again.")
 
-def SafeZone():
+def TravelFromTheWoods():
+    while True:
+        print("You are currently in the woods (East)")
+        userinput = int(input("1 - Go West (Safe Zone)\n2- Go North (The Vast Dungeon)\nMake your Choice: "))
+        if userinput == 1:
+            SafeZone()
+            break
+        elif userinput == 2:
+            TheVast()
+            break
+        else:
+            print("Invalid Input, Try again.")
+
+def SafeZoneScene():
     global SafeZoneDiscovered
     SafeZoneDiscovered = True
     print("UNKNOWN: Oh, new guest! How's it going?")
-    Sleep()
+    SleepExtended()
     print(f"{username}: Hey! I have no idea where I'm at? I'm {username}")
-    Sleep()
-    print("LLOYD: Hello, Welcome to my safe zone. I'm Lloyd and you can always find me here for resources and help.")
-    Sleep()
-    TravelFromSafeZone()
+    SleepExtended()
+    print("LLOYD: Hello, Welcome to my safe zone. I'm Lloyd, the owner of this place. Feel free to come by here to rest.")
+    SleepExtended()
+
+def SafeZone():
+    while True:
+        print("You have entered the safe zone.")
+        print("What would you like to do?")
+        print("1 - Ask Lloyd For Advice")
+        print("2 - Travel")
+        print("3 - Talk to alloy")
+        userinput = int(input("Select a choice: "))
+        if userinput == 1:
+            ranint=random.randint(1, 3)
+            if ranint == 1:
+                print ("Lloyd: You should go to the vast dungeon first, it's the closest to you and will teach you things.")
+            elif ranint == 2:
+                print ("Lloyd: You should go to the woods, Heard its a cool spot! but watch out...")
+            elif ranint == 3:
+                print ("Lloyd: The hidden dungeon, its a mysterious place. Some say its a myth. but The only way you can find out is by going")
+        elif userinput == 2:
+            TravelFromSafeZone()
+            break
+        elif userinput == 3:
+            print (f"ALLOY: Hey {username}! You are currently in the Safe Zone, nothing can harm you. You can choose to rest here and brainstorm or you can continue your adventure")
 
 def TheWoods():
     global TheWoodsDiscovered
@@ -168,6 +243,21 @@ def TheWoods():
     print("You have entered the woods.")
     print("You have encountered a foe.")
     Fight()
+    print("You continue to stroll through the woods. Nothing seems to be out of the ordinary.")
+    print("You have found a chest.")
+    print("You open the chest and find a letter.")
+    print("Letter reads, You will never find me, you will never get the sword back.")
+    print("The woods has been discovered, you are one step further to unlocking the hidden dungeon")
+    print("What would you like to do now?")
+    print("1 - Continue to explore (encounter foe's and gain strength)")
+    print("2 - Travel")
+    userinput = int(input("Select a choice: "))
+    if userinput == 1:
+        print("You continue to explore the woods.")
+        print("You have encountered a foe.")
+        Fight()
+    elif userinput == 2:
+        TravelFromTheWoods()
 
 def TheVast():
     global TheVastDiscovered
@@ -211,19 +301,16 @@ def Game():
 def Menu():
     while True:
         print("1- Start Game")
-        print("2- High Score")
-        print("3- Credits")
-        print("4- Quit Game")
+        print("2- Credits")
+        print("3- Quit Game")
         menuinp = int(input("Please select a menu option: "))
         if menuinp == 1:
             Game()
         elif menuinp == 2:
-            print("High score feature not implemented yet.")
-        elif menuinp == 3:
             print("Created / Coded By Ali Adnan")
             print("CMP621A - Andrew MacDougald")
             time.sleep(1)
-        elif menuinp == 4:
+        elif menuinp == 3:
             print("Thank you for playing.")
             break
         else:
