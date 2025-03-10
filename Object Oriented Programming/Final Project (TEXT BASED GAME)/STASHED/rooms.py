@@ -2,7 +2,7 @@
 #CMP621A
 #February 21st 2025
 #PROJECT TEXT BASED GAME - ROOMS
-
+from this import d
 import time
 import random
 def Sleep():
@@ -40,17 +40,40 @@ def SafeZone():
             print ("LLOYD: What can I get you?")
             print ("1 - Additional Health")
             print ("2 - Additional Strength")
-            print ("3 - Professional Advice")
-            print ("4 - Tools")
-            input1=int(input("Select a choice: "))
-            if input1==1:
-                "additional health"
-            elif input1==2:
-                "additional strength"
-            elif input1==3:
-                "professional advice"
-            elif input1==4:
-                "tools"
+            print ("3 - Tools")
+            shopinput=int(input("Select a choice: "))
+            if shopinput==1:
+                print ("LLOYD: Additional Health it is!")
+                if MAINCHARACTER.XP>=20:
+                    MAINCHARACTER.Health+=20
+                    print (f"Your Health has increased by 20, you now have {MAINCHARACTER.Health} Health")
+                else:
+                    print ("LLOYD: You don't have enough XP for this, come back to me when you have earned more XP")
+            elif shopinput==2:
+                print ("LLOYD: Additional Strength it is!")
+                if MAINCHARACTER.XP>=40:
+                    MAINCHARACTER.Strength+=20
+                    print (f"Your Strength has increased by 20, you now have {MAINCHARACTER.Strength} Strength")
+                else:
+                    print ("LLOYD: You don't have enough XP for this, come back to me when you have earned more XP")
+            elif shopinput==3:
+                print ("LLOYD: Tools it is!")
+                print ("1 - Sword")
+                print ("2 - Shield")
+                print ("3 - Potion")
+                input2=int(input("Select a choice: "))
+                if input2==1:
+                    print ("LLOYD: Sword it is!")
+                    sword=Sword("Sword", 20)
+                    print (f"You have acquired a {sword}")
+                if input2==2:
+                    print ("LLOYD: Shield it is!")
+                    shield=Shield("Shield", 20)
+                    print (f"You have acquired a {shield}")
+                if input2==3:
+                    print ("LLOYD: Potion it is!")
+                    potion=Potion("Potion", 20)
+                    print (f"You have acquired a {potion}")
         elif userinput==2:
             randomnumgen=random.randint(1,3)
             if randomnumgen==1:
@@ -116,4 +139,6 @@ def TravelFromVastDungeon():
 def TravelFromTheWoods():
     ""
 def TravelFromTheHiddenDungeon():
-    "+"
+    ""
+
+
