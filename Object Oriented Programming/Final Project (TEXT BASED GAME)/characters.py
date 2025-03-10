@@ -36,4 +36,7 @@ class MainCharacters(Characters):
 
 
 Foe1=Foe("Zombie", "40", "70","30")
-Alloy=MainCharacters("Alloy","100","100","100")
+Foe2=Foe("Goblin", "50", "60","40")
+Foe3=Foe("Orc", "60", "50","50")
+Alloy=Friend("Alloy", "100", "80","70")
+Lloyd=Friend("Lloyd", "100", "80","70")

@@ -23,7 +23,7 @@ def SleepExtended():
 
 def NorthUnlock():
     global statusunlocked
-    if SafeZoneDiscovered and TheWoodsDiscovered and TheVastDiscovered:
+    if SafeZoneDiscovered==True and TheWoodsDiscovered==True and TheVastDiscovered==True:
         statusunlocked = True
 
 # Scenes
@@ -83,20 +83,38 @@ def Fight():
         if userinput == 1:
             randint=random.randint(1, 3)
             if randint == 1:
+                print("")
                 print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
+                SleepExtended()
                 print("FOE: I don't care who you are dude, my sole purpose is attacking you")
+                SleepExtended()
                 print(f"{MAINCHARACTER.Name}: Is there any way I can win you over?")
+                SleepExtended()
                 print("FOE: No, just no.")
+                SleepExtended()
+                print("")
             elif randint == 2:
-                print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
-                print("FOE: I don't care who you are dude, my sole purpose is attacking you")
-                print(f"{MAINCHARACTER.Name}: Can we talk this out?")
-                print("FOE: No, just no.")
+                print("")
+                print(f"{MAINCHARACTER.Name}: Totally not here to fight, just passing through")
+                SleepExtended()
+                print("FOE: Too bad, Come back here.")
+                SleepExtended()
+                print(f"{MAINCHARACTER.Name}: PLEASE I DONT WANT TO DEAL WITH THIS")
+                SleepExtended()
+                print("FOE: Like i said. TOO BAD.")
+                SleepExtended()
+                print("")
             elif randint == 3:
-                print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
-                print("FOE: I don't care who you are dude, my sole purpose is attacking you")
-                print(f"{MAINCHARACTER.Name}: Can we be friends?")
-                print("FOE: No, just no.")
+                print("")
+                print(f"{MAINCHARACTER.Name}: No one can stop me in this journey")
+                SleepExtended()
+                print("FOE: You will regret saying that.")
+                SleepExtended()
+                print(f"{MAINCHARACTER.Name}: No regrets, Just courage.")
+                SleepExtended()
+                print("FOE: Could that statement be any cornier?")
+                SleepExtended()
+                print("")
         elif userinput == 2:
             print("What would you like to battle the foe with?")
             print("1 - Sword")
@@ -113,23 +131,23 @@ def Fight():
                 print("Invalid choice, try again.")
                 continue
             print(f"You have chosen the {combat_item}")
-            randint = random.randint(1, 4)
+            randint = random.randint(1, 2)
             if randint == 1:
-                print("You have defeated the foe, gained Strength and XP")
-                MAINCHARACTER.Strength += 10
-                MAINCHARACTER.XP += 10
+                print("You damaged the Foe.")
+                print("")
+                Foe1.Health -= 10
+                Foe1.Strength -= 10
+                if Foe1.Health <= 0:
+                    print("You have defeated the Foe.")
+                    break
             elif randint ==2:
-                print("You have been defeated by the foe, Lost health and XP")
+                print("The Foe Hits you, Lost Health")
                 MAINCHARACTER.Health -= 10
                 MAINCHARACTER.XP -= 10
-            elif randint == 3:
-                print("You have defeated the foe, gained Strength and XP")
-                MAINCHARACTER.Strength += 20
-                MAINCHARACTER.XP += 20
-            elif randint == 4:
-                print("You have been defeated by the foe, Lost health and XP")
-                MAINCHARACTER.Health -= 20
-                MAINCHARACTER.XP -= 20
+            if MAINCHARACTER.Health <= 0:
+                print("You have been defeated by the Foe.")
+                print("GAME OVER")
+                exit()
             break  # Exit loop after battle
         elif userinput == 3:
             randint = random.randint(1, 2)
@@ -204,7 +222,8 @@ def TravelFromSafeZone():
             TheWoods()
             break
         elif userinput == 3:
-            if statusunlocked:
+            NorthUnlock()
+            if statusunlocked==True:
                 TheHiddenDungeon()
                 break
             else:
@@ -248,8 +267,6 @@ def TravelFromTheVast():
             print("Invalid Input, Try again.")
 
 def SafeZoneScene():
-    global SafeZoneDiscovered
-    SafeZoneDiscovered = True
     print("UNKNOWN: Oh, new guest! How's it going?")
     SleepExtended()
     print(f"{username}: Hey! I have no idea where I'm at? I'm {username}")
@@ -258,13 +275,15 @@ def SafeZoneScene():
     SleepExtended()
 
 def SafeZone():
+    global SafeZoneDiscovered
+    SafeZoneDiscovered = True
     while True:
         print("You have entered the safe zone.")
         print("What would you like to do?")
         print("1 - Ask Lloyd For Advice")
         print("2 - Travel")
         print("3 - Talk to alloy")
-        userinput = int(input("Select a choice: "))
+        userinput = 2
         if userinput == 1:
             ranint=random.randint(1, 3)
             if ranint == 1:
