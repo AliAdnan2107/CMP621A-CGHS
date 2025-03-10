@@ -116,6 +116,7 @@ def Fight():
                 SleepExtended()
                 print("")
         elif userinput == 2:
+            print("")
             print("What would you like to battle the foe with?")
             print("1 - Sword")
             print("2 - Shield")
@@ -131,6 +132,7 @@ def Fight():
                 print("Invalid choice, try again.")
                 continue
             print(f"You have chosen the {combat_item}")
+            SleepExtended()
             randint = random.randint(1, 2)
             if randint == 1:
                 print("You damaged the Foe.")
@@ -162,33 +164,33 @@ def Fight():
             print("Invalid choice, try again.")
 
 def FinalFight():
-    print("What would you like to battle the Master with?")
-    print("1 - Sword")
-    print("2 - Shield")
-    print("3 - Potion")
-    battleinput = int(input("Select a choice: "))
-    if battleinput == 1:
-        combat_item = "Sword"
-    elif battleinput == 2:
-        combat_item = "Shield"
-    elif battleinput == 3:
-        combat_item = "Potion"
-    else:
-        print("Invalid choice, try again.")
-    print(f"You have chosen the {combat_item}")
-    randint = random.randint(1, 2)
-    if randint == 1:
-        print("You hit the master with the sword, and damage him severely")
-        print("The Master: You will regret this.")
-    elif randint == 2:
-        print("The Master hits you with a spell, you lose health and XP")
-        MAINCHARACTER.Health -= 30
-        MAINCHARACTER.XP -= 30
-    if MAINCHARACTER.Health <= 0:
-        print("You have been defeated by the Master.")
-        print("GAME OVER")
-        exit()
-    
+    while True:
+        print("What would you like to battle the Master with?")
+        print("1 - Sword")
+        print("2 - Shield")
+        print("3 - Potion")
+        battleinput = int(input("Select a choice: "))
+        if battleinput == 1:
+            combat_item = "Sword"
+        elif battleinput == 2:
+            combat_item = "Shield"
+        elif battleinput == 3:
+            combat_item = "Potion"
+        else:
+            print("Invalid choice, try again.")
+        print(f"You have chosen the {combat_item}")
+        randint = random.randint(1, 2)
+        if randint == 1:
+            print("You hit the master with the sword, and damage him severely")
+            print("The Master: You will regret this.")
+        elif randint == 2:
+            print("The Master hits you with a spell, you lose health and XP")
+            MAINCHARACTER.Health -= 30
+            MAINCHARACTER.XP -= 30
+        if MAINCHARACTER.Health <= 0:
+            print("You have been defeated by the Master.")
+            print("GAME OVER")
+            exit()
 
 # Character Build
 def BuildPick():
@@ -283,7 +285,7 @@ def SafeZone():
         print("1 - Ask Lloyd For Advice")
         print("2 - Travel")
         print("3 - Talk to alloy")
-        userinput = 2
+        userinput = int(input("Select a choice: "))
         if userinput == 1:
             ranint=random.randint(1, 3)
             if ranint == 1:
