@@ -7,28 +7,28 @@ import time
 import random
 from characters import *
 
-# Global Variables
+# Global Variables  -------------------------------------------------------------------------------
 username = ""
 statusunlocked = False
 SafeZoneDiscovered = False
 TheWoodsDiscovered = False
 TheVastDiscovered = False
 
-# Utility Functions
-def Sleep():
+# Utility Functions -------------------------------------------------------------------------------
+def Sleep(): #Sleep for dialogue
     time.sleep(1)
 
-def SleepExtended():
+def SleepExtended(): #Extended Sleep for longer dialogue
     time.sleep(1.5)
 
-def NorthUnlock():
+def NorthUnlock(): #Unlock the hidden dungeon
     global statusunlocked
     if SafeZoneDiscovered==True and TheWoodsDiscovered==True and TheVastDiscovered==True:
         statusunlocked = True
 
-# Scenes
+# Scenes -------------------------------------------------------------------------------------------
 def IntroScene():
-    global username
+    global username #Globalize username for all other scenes to use
     print("\nUNKNOWN: You're awake")
     SleepExtended()
     print("YOU: I am?")
@@ -102,17 +102,27 @@ def FinalScene():
     print ("GAME OVER")
     exit()
 
-def Fight(x):
-    battle_over=False
-    while not battle_over:
+def SafeZoneScene():
+    print("UNKNOWN: Oh, new guest! How's it going?")
+    SleepExtended()
+    print(f"{username}: Hey! I have no idea where I'm at? I'm {username}")
+    SleepExtended()
+    print("LLOYD: Hello, Welcome to my safe zone. I'm Lloyd, the owner of this place. Feel free to come by here to rest.")
+    SleepExtended()
+
+# Game Functions -----------------------------------------------------------------------------------
+
+def Fight(x): #Fight function
+    battle_over=False #Set battle_over to False
+    while not battle_over: #While battle_over is False
         print ("")
         print("1 - Talk")
         print("2 - Battle")
         print("3 - Flee")
         userinput = int(input("Select a choice: "))
         if userinput == 1:
-            randint=random.randint(1, 3)
-            if randint == 1:
+            randint=random.randint(1, 3) #Randomize dialogue
+            if randint == 1: #Dialogue 1
                 print("")
                 print(f"{MAINCHARACTER.Name}: Hey, I'm {MAINCHARACTER.Name}, I'm just passing through")
                 SleepExtended()
@@ -123,7 +133,7 @@ def Fight(x):
                 print("FOE: No, just no.")
                 SleepExtended()
                 print("")
-            elif randint == 2:
+            elif randint == 2: #Dialogue 2
                 print("")
                 print(f"{MAINCHARACTER.Name}: Totally not here to fight, just passing through")
                 SleepExtended()
@@ -134,7 +144,7 @@ def Fight(x):
                 print("FOE: Like i said. TOO BAD.")
                 SleepExtended()
                 print("")
-            elif randint == 3:
+            elif randint == 3: #Dialogue 3
                 print("")
                 print(f"{MAINCHARACTER.Name}: No one can stop me in this journey")
                 SleepExtended()
@@ -145,7 +155,7 @@ def Fight(x):
                 print("FOE: Could that statement be any cornier?")
                 SleepExtended()
                 print("")
-        elif userinput == 2:
+        elif userinput == 2: #Battle
             while True:
                 print("")
                 print("What would you like to battle the foe with?")
@@ -165,42 +175,42 @@ def Fight(x):
                 print(f"You have chosen the {combat_item}")
                 SleepExtended()
                 randint = random.randint(1, 2)
-                if randint == 1:
-                    print("You damaged the Foe.")
+                if randint == 1: #Randomize battle
+                    print("You damaged the Foe.") 
                     print("")
-                    x.Health -= 40
-                    x.Strength -= 10
-                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health")
+                    x.Health -= 40 #Decrease Foe Health
+                    x.Strength -= 10 #Decrease Foe Strength
+                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health") #Print Health
                     print("")
-                    if x.Health <= 0:
+                    if x.Health <= 0: #If Foe Health is less than or equal to 0
                         print("You have defeated the Foe.")
-                        battle_over=True
+                        battle_over=True #Set battle_over to True
                         break
-                elif randint ==2:
+                elif randint ==2: #Randomize battle
                     print("The Foe Hits you, Lost Health")
-                    MAINCHARACTER.Health -= 10
-                    MAINCHARACTER.XP -= 10
-                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health")
+                    MAINCHARACTER.Health -= 10 #Decrease Main Character Health
+                    MAINCHARACTER.XP -= 10 #Decrease Main Character XP
+                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health") #Print Health
                     print("")
-                if MAINCHARACTER.Health <= 0:
+                if MAINCHARACTER.Health <= 0: #If Main Character Health is less than or equal to 0
                     print("You have been defeated by the Foe.")
-                    print("GAME OVER")
-                    exit()
+                    print("GAME OVER") #Print Game Over
+                    exit() #Exit Game
                 break  # Exit loop after battle
-        elif userinput == 3:
+        elif userinput == 3: #Flee
             randint = random.randint(1, 2)
-            if randint == 1:
+            if randint == 1: #Randomize
                 print("You have fled the foe")
-                battle_over=True
+                battle_over=True #Set battle_over to True
                 break
-            elif randint == 2:
+            elif randint == 2: #Randomize
                 print ("The Foe got to you, lost health and XP")
-                MAINCHARACTER.Health -= 50
-                MAINCHARACTER.XP -= 50
+                MAINCHARACTER.Health -= 50 #Decrease Main Character Health
+                MAINCHARACTER.XP -= 50 #Decrease Main Character XP
                 print(f"You now have {MAINCHARACTER.Health} Health, and {MAINCHARACTER.XP} XP")
                 print ("")
-            if MAINCHARACTER.Health <= 0:
-                print("You have been defeated by the Foe.")
+            if MAINCHARACTER.Health <= 0: #If Main Character Health is less than or equal to 0
+                print("You have been defeated by the Foe.") 
                 print("GAME OVER")
                 exit()
             
@@ -208,8 +218,8 @@ def Fight(x):
         else:
             print("Invalid choice, try again.")
 
-def FinalFight(y):
-    battle_over=False
+def FinalFight(y): #Final Fight function
+    battle_over=False 
     while not battle_over:
         print ("")
         print("What would you like to battle the Master with?")
@@ -237,7 +247,7 @@ def FinalFight(y):
             if y.Health <= 0:
                 print("You have defeated the Master.")
                 battle_over=True
-                FinalScene()
+                FinalScene() #Final Scene
                 break
         elif randint == 2:
             print("The Master hits you with a spell, you lose health and XP")
@@ -250,28 +260,31 @@ def FinalFight(y):
             print("GAME OVER")
             exit()
 
-# Character Build
-def BuildPick():
-    global MAINCHARACTER
+# Character Build Functions ------------------------------------------------------------------------
+
+def BuildPick(): #Character Build Function
+    global MAINCHARACTER #Globalize MAINCHARACTER
     print("Select your initial build:")
     print("1 - 150 Health, 60 Strength, 20XP")
     print("2 - 100 Health, 80 Strength, 40XP")
     print("3 - 80 Health, 120 Strength, 30XP")
     buildinput = int(input("Pick a number: "))
     if buildinput == 1:
-        MAINCHARACTER = MainCharacters(username, 150, 60, 20)
+        MAINCHARACTER = MainCharacters(username, 150, 60, 20) #Set MAINCHARACTER to build 1
     elif buildinput == 2:
-        MAINCHARACTER = MainCharacters(username, 100, 80, 40)
+        MAINCHARACTER = MainCharacters(username, 100, 80, 40) #Set MAINCHARACTER to build 2
     elif buildinput == 3:
-        MAINCHARACTER = MainCharacters(username, 80, 120, 30)
+        MAINCHARACTER = MainCharacters(username, 80, 120, 30) #Set MAINCHARACTER to build 3
     else:
         print("Invalid choice. Defaulting to build 1.")
-        MAINCHARACTER = MainCharacters(username, 150, 60, 20)
-    print(f"Your character {MAINCHARACTER.Name} has been built with these features")
-    MAINCHARACTER.tell()
-    print(MAINCHARACTER)
+        MAINCHARACTER = MainCharacters(username, 150, 60, 20) #Default to build 1
+    print(f"Your character {MAINCHARACTER.Name} has been built with these features") #Print Character Build
+    MAINCHARACTER.tell() #Tell Character
+    print(MAINCHARACTER) #Print Character
 
-def TravelFromSafeZone():
+# Travel Functions ---------------------------------------------------------------------------------
+
+def TravelFromSafeZone(): #Travel Function
     while True:
         print ("")
         print("You are currently in the safe zone (South)")
@@ -292,7 +305,7 @@ def TravelFromSafeZone():
         else:
             print("Invalid Input, Try again.")
 
-def TravelFromHiddenDungeon():
+def TravelFromHiddenDungeon(): #Travel Function
     while True:
         print ("")
         print ("You are currently in the hidden dungeon (North)")
@@ -306,7 +319,7 @@ def TravelFromHiddenDungeon():
         else:
             print("Invalid input, try again.")
 
-def TravelFromTheWoods():
+def TravelFromTheWoods(): #Travel Function
     while True:
         print ("")
         print("You are currently in the woods (East)")
@@ -320,7 +333,7 @@ def TravelFromTheWoods():
         else:
             print("Invalid Input, Try again.")
 
-def TravelFromTheVast():
+def TravelFromTheVast(): #Travel Function
     while True:
         print ("")
         print("You are currently in the vast dungeon (West)")
@@ -334,15 +347,9 @@ def TravelFromTheVast():
         else:
             print("Invalid Input, Try again.")
 
-def SafeZoneScene():
-    print("UNKNOWN: Oh, new guest! How's it going?")
-    SleepExtended()
-    print(f"{username}: Hey! I have no idea where I'm at? I'm {username}")
-    SleepExtended()
-    print("LLOYD: Hello, Welcome to my safe zone. I'm Lloyd, the owner of this place. Feel free to come by here to rest.")
-    SleepExtended()
+# Room Functions -----------------------------------------------------------------------------------
 
-def SafeZone():
+def SafeZone(): #Safe Zone Function
     global SafeZoneDiscovered
     SafeZoneDiscovered = True
     while True:
@@ -374,7 +381,7 @@ def SafeZone():
             print (f"ALLOY: Hey {username}! You are currently in the Safe Zone, nothing can harm you. You can choose to rest here and brainstorm or you can continue your adventure")
             print ("")
 
-def TheWoods():
+def TheWoods(): #The Woods Function
     global TheWoodsDiscovered
     TheWoodsDiscovered = True
     print ("")
@@ -403,7 +410,7 @@ def TheWoods():
     SleepExtended()
     TravelFromTheWoods()
 
-def TheVast():
+def TheVast(): #The Vast Dungeon Function
     global TheVastDiscovered
     TheVastDiscovered = True
     print ("")
@@ -443,7 +450,7 @@ def TheVast():
     Sleep()
     TravelFromTheVast()
 
-def TheHiddenDungeon():
+def TheHiddenDungeon(): #Hidden Dungeon Function
     print ("")
     print("You have entered the hidden dungeon.")
     Sleep()
@@ -467,7 +474,7 @@ def TheHiddenDungeon():
     Sleep()
     TravelFromHiddenDungeon()
 
-def TheMastersLair():
+def TheMastersLair(): #Master's Lair Function
     print ("")
     print("You have entered the Master's Lair.")
     Sleep()
@@ -484,13 +491,15 @@ def TheMastersLair():
     print("The Master: You will regret this.")
     FinalFight(TheMaster)
 
-def Game():
+# Main Game Loop -----------------------------------------------------------------------------------
+
+def Game(): #Main Game Function
     IntroScene()
     BuildPick()
     MidScene()
     Scene1()
 
-def Menu():
+def Menu(): #Menu Function
     while True:
         print("1- Start Game")
         print("2- Credits")
