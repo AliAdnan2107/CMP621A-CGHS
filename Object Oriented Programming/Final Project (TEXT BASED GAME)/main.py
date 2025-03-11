@@ -73,13 +73,43 @@ def Scene1():
     print("")
     SafeZone()
 
-def Fight():
-    while True:
+def FinalScene():
+    print ("")
+    print("The Master: You have defeated me, but you will never get the sword back.")
+    SleepExtended()
+    print(f"{MAINCHARACTER.Name}: You mean, the sword in my hands right now?")
+    SleepExtended()
+    print("The Master: What, HOW?")
+    SleepExtended()
+    print(f"{MAINCHARACTER.Name}: You will never get to know, Goodbye Master.")
+    SleepExtended()
+    print ("The Master vanishes from existance")
+    SleepExtended()
+    print ("You have defeated the Master, and have taken back the sword")
+    SleepExtended()
+    print ("You have saved the world from the Master's evil doings")
+    SleepExtended()
+    print ("You have won the game, Congratulations!")
+    SleepExtended()
+    print ("Thank you for playing The Master")
+    SleepExtended()
+    print ("Created by Ali Adnan")
+    SleepExtended()
+    print ("CMP621A - Andrew MacDougald")
+    SleepExtended()
+    print ("February 21st 2025")
+    SleepExtended()
+    print ("GAME OVER")
+    exit()
+
+def Fight(x):
+    battle_over=False
+    while not battle_over:
+        print ("")
         print("1 - Talk")
         print("2 - Battle")
         print("3 - Flee")
         userinput = int(input("Select a choice: "))
-
         if userinput == 1:
             randint=random.randint(1, 3)
             if randint == 1:
@@ -116,55 +146,72 @@ def Fight():
                 SleepExtended()
                 print("")
         elif userinput == 2:
-            print("")
-            print("What would you like to battle the foe with?")
-            print("1 - Sword")
-            print("2 - Shield")
-            print("3 - Potion")
-            battleinput = int(input("Select a choice: "))
-            if battleinput == 1:
-                combat_item = "Sword"
-            elif battleinput == 2:
-                combat_item = "Shield"
-            elif battleinput == 3:
-                combat_item = "Potion"
-            else:
-                print("Invalid choice, try again.")
-                continue
-            print(f"You have chosen the {combat_item}")
-            SleepExtended()
-            randint = random.randint(1, 2)
-            if randint == 1:
-                print("You damaged the Foe.")
+            while True:
                 print("")
-                Foe1.Health -= 10
-                Foe1.Strength -= 10
-                if Foe1.Health <= 0:
-                    print("You have defeated the Foe.")
-                    break
-            elif randint ==2:
-                print("The Foe Hits you, Lost Health")
-                MAINCHARACTER.Health -= 10
-                MAINCHARACTER.XP -= 10
-            if MAINCHARACTER.Health <= 0:
-                print("You have been defeated by the Foe.")
-                print("GAME OVER")
-                exit()
-            break  # Exit loop after battle
+                print("What would you like to battle the foe with?")
+                print("1 - Sword")
+                print("2 - Shield")
+                print("3 - Potion")
+                battleinput = int(input("Select a choice: "))
+                if battleinput == 1:
+                    combat_item = "Sword"
+                elif battleinput == 2:
+                    combat_item = "Shield"
+                elif battleinput == 3:
+                    combat_item = "Potion"
+                else:
+                    print("Invalid choice, try again.")
+                    continue
+                print(f"You have chosen the {combat_item}")
+                SleepExtended()
+                randint = random.randint(1, 2)
+                if randint == 1:
+                    print("You damaged the Foe.")
+                    print("")
+                    x.Health -= 40
+                    x.Strength -= 10
+                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health")
+                    print("")
+                    if x.Health <= 0:
+                        print("You have defeated the Foe.")
+                        battle_over=True
+                        break
+                elif randint ==2:
+                    print("The Foe Hits you, Lost Health")
+                    MAINCHARACTER.Health -= 10
+                    MAINCHARACTER.XP -= 10
+                    print(f"You now have {MAINCHARACTER.Health} Health, the Foe has {x.Health} Health")
+                    print("")
+                if MAINCHARACTER.Health <= 0:
+                    print("You have been defeated by the Foe.")
+                    print("GAME OVER")
+                    exit()
+                break  # Exit loop after battle
         elif userinput == 3:
             randint = random.randint(1, 2)
             if randint == 1:
                 print("You have fled the foe")
+                battle_over=True
+                break
             elif randint == 2:
                 print ("The Foe got to you, lost health and XP")
-                MAINCHARACTER.Health -= 10
-                MAINCHARACTER.XP -= 10
+                MAINCHARACTER.Health -= 50
+                MAINCHARACTER.XP -= 50
+                print(f"You now have {MAINCHARACTER.Health} Health, and {MAINCHARACTER.XP} XP")
+                print ("")
+            if MAINCHARACTER.Health <= 0:
+                print("You have been defeated by the Foe.")
+                print("GAME OVER")
+                exit()
+            
             break  # Exit loop after fleeing
         else:
             print("Invalid choice, try again.")
 
-def FinalFight():
-    while True:
+def FinalFight(y):
+    battle_over=False
+    while not battle_over:
+        print ("")
         print("What would you like to battle the Master with?")
         print("1 - Sword")
         print("2 - Shield")
@@ -183,10 +230,21 @@ def FinalFight():
         if randint == 1:
             print("You hit the master with the sword, and damage him severely")
             print("The Master: You will regret this.")
+            y.Health -= 50
+            y.Strength -= 20
+            print(f"You now have {MAINCHARACTER.Health} Health, the Master has {y.Health} Health")
+            print ("")
+            if y.Health <= 0:
+                print("You have defeated the Master.")
+                battle_over=True
+                FinalScene()
+                break
         elif randint == 2:
             print("The Master hits you with a spell, you lose health and XP")
             MAINCHARACTER.Health -= 30
             MAINCHARACTER.XP -= 30
+            print(f"You now have {MAINCHARACTER.Health} Health, the Master has {y.Health} Health")
+            print ("")
         if MAINCHARACTER.Health <= 0:
             print("You have been defeated by the Master.")
             print("GAME OVER")
@@ -215,6 +273,7 @@ def BuildPick():
 
 def TravelFromSafeZone():
     while True:
+        print ("")
         print("You are currently in the safe zone (South)")
         userinput = int(input("1 - Go West (Vast Dungeon)\n2- Go East (The Woods)\n3- Go North (The Hidden Dungeon)\nMake your Choice: "))
         if userinput == 1:
@@ -235,15 +294,21 @@ def TravelFromSafeZone():
 
 def TravelFromHiddenDungeon():
     while True:
+        print ("")
         print ("You are currently in the hidden dungeon (North)")
-        userinput = int(input("1 - Go Forward (The Master's Lair)"))
-        if userinput == 1:
+        userinput = input("1 - Go Forward (The Master's Lair) Y/N? : ")
+        if userinput == "Y":
             TheMastersLair()
+            break
+        elif userinput == "N":
+            SafeZone()
+            break
         else:
             print("Invalid input, try again.")
 
 def TravelFromTheWoods():
     while True:
+        print ("")
         print("You are currently in the woods (East)")
         userinput = int(input("1 - Go West (Safe Zone)\n2- Go North (The Vast Dungeon)\nMake your Choice: "))
         if userinput == 1:
@@ -257,6 +322,7 @@ def TravelFromTheWoods():
 
 def TravelFromTheVast():
     while True:
+        print ("")
         print("You are currently in the vast dungeon (West)")
         userinput = int(input("1 - Go East (Safe Zone)\n2- Go South (The Woods)\nMake your Choice: "))
         if userinput == 1:
@@ -289,76 +355,124 @@ def SafeZone():
         if userinput == 1:
             ranint=random.randint(1, 3)
             if ranint == 1:
+                print ("")
                 print ("Lloyd: You should go to the vast dungeon first, it's the closest to you and will teach you things.")
+                print ("")
             elif ranint == 2:
+                print ("")
                 print ("Lloyd: You should go to the woods, Heard its a cool spot! but watch out...")
+                print ("")
             elif ranint == 3:
+                print ("")
                 print ("Lloyd: The hidden dungeon, its a mysterious place. Some say its a myth. but The only way you can find out is by going")
+                print ("")
         elif userinput == 2:
             TravelFromSafeZone()
             break
         elif userinput == 3:
+            print ("")
             print (f"ALLOY: Hey {username}! You are currently in the Safe Zone, nothing can harm you. You can choose to rest here and brainstorm or you can continue your adventure")
+            print ("")
 
 def TheWoods():
     global TheWoodsDiscovered
     TheWoodsDiscovered = True
+    print ("")
     print("You have entered the woods.")
+    Sleep()
     print("You have encountered a foe.")
-    Fight()
+    Sleep()
+    randomfoepick=random.randint(1,3)
+    if randomfoepick==1:
+        randomfoe=Foe1
+    elif randomfoepick==2:
+        randomfoe=Foe2
+    elif randomfoepick==3:
+        randomfoe=Foe3
+    Fight(randomfoe)
+    print ("")
     print("You continue to stroll through the woods. Nothing seems to be out of the ordinary.")
+    SleepExtended()
     print("You have found a chest.")
+    SleepExtended()
     print("You open the chest and find a letter.")
+    SleepExtended()
     print("Letter reads, You will never find me, you will never get the sword back.")
-    print("The woods has been discovered, you are one step further to unlocking the hidden dungeon")
-    print("What would you like to do now?")
-    print("1 - Continue to explore (encounter foe and gain strength)")
-    print("2 - Travel")
-    userinput = int(input("Select a choice: "))
-    if userinput == 1:
-        print("You continue to explore the woods.")
-        print("You have encountered a foe.")
-        Fight()
-    elif userinput == 2:
-        TravelFromTheWoods()
+    SleepExtended()
+    print("The woods has been discovered")
+    SleepExtended()
+    TravelFromTheWoods()
 
 def TheVast():
     global TheVastDiscovered
     TheVastDiscovered = True
+    print ("")
     print("You have entered the vast dungeon.")
+    Sleep()
     print("You have encountered a foe.")
+    Sleep()
     print("The foe whispers to you...")
+    Sleep()
     print("I know you, you will never get to the master. Quit while you can.")
-    Fight()
+    Sleep()
+    randomfoepick=random.randint(1,3)
+    if randomfoepick==1:
+        randomfoe=Foe1
+    elif randomfoepick==2:
+        randomfoe=Foe2
+    elif randomfoepick==3:
+        randomfoe=Foe3
+    Fight(randomfoe)
+    print ("")
     print("You keep moving forward")
+    Sleep()
     print ("The Dungeon is as vast as it can be, you keep moving forward and encounter another foe")
-    Fight()
+    Sleep()
+    randomfoepick=random.randint(1,3)
+    if randomfoepick==1:
+        randomfoe=Foe1
+    elif randomfoepick==2:
+        randomfoe=Foe2
+    elif randomfoepick==3:
+        randomfoe=Foe3
+    Fight(randomfoe)
+    print ("")
     print("You find the last true key to the hidden dungeon")
-    print("You have discovered the vast dungeon, you are one step further to unlocking the hidden dungeon")
-    print("What would you like to do now?")
-    print("1 - Continue to explore (encounter foe and gain strength)")
-    print("2 - Travel")
-    userinput = int(input("Select a choice: "))
-    if userinput == 1:
-        print("You continue to explore the vast dungeon.")
-        print("You have encountered a foe.")
-        Fight()
-    elif userinput == 2:
-        TravelFromTheVast()
+    Sleep()
+    print("You have discovered the vast dungeon")
+    Sleep()
+    TravelFromTheVast()
 
 def TheHiddenDungeon():
+    print ("")
     print("You have entered the hidden dungeon.")
+    Sleep()
     print ("You lurk around to find whats so mysterious about this hidden dungeon.")
+    Sleep()
     print("You have encountered a foe.")
-    Fight()
+    Sleep()
+    randomfoepick=random.randint(1,3)
+    if randomfoepick==1:
+        randomfoe=Foe1
+    elif randomfoepick==2:
+        randomfoe=Foe2
+    elif randomfoepick==3:
+        randomfoe=Foe3
+    Fight(randomfoe)
     print ("You keep moving forward and find a chest.")
+    Sleep()
     print ("You open the chest and find a letter.")
+    Sleep()
     print ("Letter reads, Leave my Lair while you still can... you will regret this")
+    Sleep()
     TravelFromHiddenDungeon()
 
 def TheMastersLair():
+    print ("")
     print("You have entered the Master's Lair.")
+    Sleep()
     print("You have encountered the Master.")
+    Sleep()
     print("The Master: You have come to face me, I see.")
     SleepExtended()
     print(f"{MAINCHARACTER.Name}: I have come to take back what is mine.")
@@ -368,11 +482,7 @@ def TheMastersLair():
     print(f"{MAINCHARACTER.Name}: I will take it back, even if it means I have to fight you.")
     SleepExtended()
     print("The Master: You will regret this.")
-    FinalFight()
-
-
-
-
+    FinalFight(TheMaster)
 
 def Game():
     IntroScene()
@@ -401,5 +511,9 @@ def Menu():
 print("Ali Adnan Presents")
 time.sleep(1)
 print("The Master")
+time.sleep(1)
+print ("This is a text based game, you will be given choices to make and you will have to make the right choice to progress")
+time.sleep(1)
+print ("This game is also very random based, good luck!")
 time.sleep(1)
 Menu()
