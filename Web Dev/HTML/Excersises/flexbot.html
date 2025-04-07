@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--  THE CODE FOR THIS CAN BE FOUND AT THE FOLLOWING LINK!!
+https://replit.com/@AndrewMacDougal/CSS-Flexbox-starter-For-Notes#index.html  -->
+
+  <head>
+    <title>Flexbox</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+        align-self: flex-start;
+        flex-shrink: 1;
+      }
+      .el--2 {
+        background-color: orangered;
+        order: 1;
+        align-self: center;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+        order: 2;
+        align-self: center;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+        align-self: flex-end;
+      }
+      .el--6 {
+        background-color: steelblue;
+        order: -1;
+        align-self: center;
+      }
+      .el--7 {
+        background-color: yellow;
+        align-self: center;
+      }
+      .el--8 {
+        background-color: crimson;
+        align-self: center;
+      }
+
+      .container {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 40px;
+        margin: 40px;
+        width:1200px;
+
+        /* FLEXBOX */
+        display: flex;
+        gap: 40px
+
+          
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="el el--1">HTML</div>
+      <div class="el el--2">and</div>
+      <div class="el el--3">CSS</div>
+      <div class="el el--4">are</div>
+      <div class="el el--5">great</div>
+      <div class="el el--6">languages</div>
+      <div class="el el--7">to</div>
+      <div class="el el--8">learn</div>
+    </div>
+  </body>
+</html>
