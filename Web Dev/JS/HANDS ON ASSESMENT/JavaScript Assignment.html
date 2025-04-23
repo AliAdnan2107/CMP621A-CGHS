@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!--Name:  Ali Adnan
+	Date:  4/10/2025
+	Assignment:  JavaScript Assignment #1 -->
+<meta charset=utf-8 />
+</head>
+
+<body>
+
+<!-- ----------------------------------------1st Question -------------------------------------------
+Question 1:  Create an alert that has the following lines.
+Welcome to the CMP521 JavaScript Assessment!
+It's an awesome assement for students to show what they know!
+HINT:  The line can't be split up in the script itself.-->
+
+
+
+<script>
+//WRITE ALL OF YOUR JAVASCRIPT AND FUNCTIONS FOR QUESTION 1 HERE!!!!!!!!!!  ----------------------
+function showAlert() {
+	alert("Welcome to the CMP521 JavaScript Assessment!\nIt's an awesome assement for students to show what they know!");
+}
+</script>
+
+<!--Keep the body of Question 1 below here.------------------------------------------------------------->
+
+<h1>Question 1</h1>
+<button onclick="showAlert()">Click here for Question 1</button>
+
+<!-----------------------------------------End of Question 1------------------------------------------>
+
+
+<!------------------------------------2nd Question-----------------------------------
+Using a prompt have the user input a word.  The program will then display the word in uppercase
+lettering in an alert box with a proper message.-->
+
+
+<script>
+    //WRITE ALL OF YOUR JAVASCRIPT AND FUNCTIONS FOR QUESTION 2 HERE!!!!!!!!!!  ----------------------
+	function showPrompt() {
+	let word = prompt ("Please enter a word:");
+	alert("The word you entered uppercase is: " + word.toUpperCase());
+	}
+</script>
+    
+<!-- Keep the "body" of Question 2 beneath here ------------------------------------ -->
+	<h1>Question 2</h1>
+	<button onclick=showPrompt()>Click here for Question 2</button>
+<!-------------------------------------End of Question 2---------------------------------------------->
+
+
+<!-- ----------------------------------------3rd Question -------------------------------------------
+Question 3:  The user will enter two numbers and click a button to show the result of the indicated 
+calculation.  (Hint remember parseInt().)  ------------------------------------------------------ -->
+
+
+<script>
+	//WRITE ALL OF YOUR JAVASCRIPT AND FUNCTIONS FOR QUESTION 3 HERE!!!!!!!!!!
+	function add() {
+		var num1=document.getElementById("Num1Box").value;
+		var num2=document.getElementById("Num2Box").value;
+		result = parseInt(num1) + parseInt(num2);
+		document.getElementById("results").innerHTML = result;
+	}
+	function subtract() {
+		var num1=document.getElementById("Num1Box").value;
+		var num2=document.getElementById("Num2Box").value;
+		result = parseInt(num1) - parseInt(num2);
+		document.getElementById("results").innerHTML = result;
+	}
+	function multiply() {
+		var num1=document.getElementById("Num1Box").value;
+		var num2=document.getElementById("Num2Box").value;
+		result = parseInt(num1) * parseInt(num2);
+		document.getElementById("results").innerHTML = result;
+	}
+	function divide() {
+		var num1=document.getElementById("Num1Box").value;
+		var num2=document.getElementById("Num2Box").value;
+		result = parseInt(num1) / parseInt(num2);
+		document.getElementById("results").innerHTML = result;
+	}
+</script>
+
+
+<!-- Keep the "body" of Question 3 beneath here ---------------------------------------- -->
+	<h1>Question 3</h1>
+	<br>
+	1st Number: <input type="text" id="Num1Box">
+	<br>
+	2nd Number: <input type="text" id="Num2Box">
+	<br>
+	<button onclick="add()">Add</button>
+	<button onclick="subtract()">Subtract</button>
+	<button onclick="multiply()">Multiply</button>
+	<button onclick="divide()">Divide</button>
+	<p>The result is :<p id="results"></p> </p>
+	<br>
+	<br>
+<!-----------------------------------------End of Question3----------------------------------->
+
+</body>
+
+</html>

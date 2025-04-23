@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change Opacity</title>
+
+    <style>
+      div {
+        background-color: blue;
+        height: 100px;
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM TASK - Change Opacity</h1>
+
+    <div class="box">Box</div>
+    <br />
+    <button type="button" class="light">Make Lighter!</button>
+    <button type="button" class="dark">Make Darker!</button>
+
+    <script>
+      // ELEMENTS
+      let box_obj = document.querySelector(".box");
+      box_obj.style.opacity = 0.5; //set box to starting opacity
+
+      //VARIABLES
+      //opacity variable
+      const opacity = 0.5;
+      const element = document.getElementById("light");
+      element.addEventListener ("click", light ())
+      const element2 = document.getElementById("dark");
+      element2.addEventListener ("click", dark ())
+      //FUNCTIONS
+      //light function decreases opacity
+      function light() {}
+        document.getElementByid("box").innerHTML = "light";
+        box_obj.style.opacity = opacity-0.1; //decrease opacity by 0.1
+      //dark function increases opacity
+      function dark() {}
+        document.getElementByid("box").innerHTML = "dark";
+        box_obj.style.opacity = opacity+0.1; //increase opacity by 0.1
+      //EVENT LISTENERS
+      //add a click event to light button that calls the light function
+      //add a click event to dark button that calls the dark function
+    </script>
+  </body>
+</html>

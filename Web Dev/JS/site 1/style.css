@@ -1,0 +1,41 @@
+h1 {
+    background-color: lightblue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: purple;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+button:hover {background-color: magenta}
+
+button:active {
+  background-color: lightpink;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#docWrite2 {
+    background-color: gold;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
