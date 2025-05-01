@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Drawing</h1>
+    <canvas id="canvas" width="800" height="600" style="border:1px solid #000000;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Example drawing function
+        function draw() {
+            ctx.arc(375, 300, 50, 0, Math.PI * 2, true); // Outer circle
+            ctx.stroke();
+            ctx.fillStyle = 'yellow';
+            ctx.border = '30px solid black';
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        draw();
+    </script>
+</body>
+</html>

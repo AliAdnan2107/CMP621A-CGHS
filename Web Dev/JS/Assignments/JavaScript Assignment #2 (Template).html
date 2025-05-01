@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset=utf-8 />
+<!-- ALI ADNAN -->
+</head>
+
+<body>
+
+<!-- ----------------------------------------1st Question -------------------------------------------
+This question will begin when the button is clicked.  The program will read the input number and use a 
+loop to show the next 8 numbers that are 2 less than the previous.-->
+	<h1>Question 1</h1>
+	<br>
+
+	Enter Starting Number: <input type="text" id="Q1InputFirst"> <br>
+	<button type="button" onclick="ShowEightDown()">Run Question 1</button> <br>
+	The result is  :<span id="result1"> </span>
+	<script>
+	function ShowEightDown(x){
+		var x = document.getElementById("Q1InputFirst").value;
+		console.log (x);
+		for (var i = x; i > x-16 ; i-=2)
+			console.log(i)
+			document.getElementById("result1").innerHTML +=  i +"<br/>"; //Couldn't get print statement to apply, immediatley goes to final number
+	}
+		
+	</script>
+	<br>
+
+	<br>
+	<br>
+<!-- ----------------------------------------2nd Question -------------------------------------------
+In the first box the starting number is entered.  The amount to be added is in the second box which
+will be added the number of times which is entered in the third box.  For example if 7 is entered 
+in the first box, 10 is entered in the second box and 4 is entered in the third box the following is 
+displayed in the span.  Use a different type of loop from question 1.
+7
+17
+27
+37
+47
+-->
+	<h1>Question 2</h1>
+	<br>
+	Enter Starting Number: <input type="text" id="Q2InputFirst"> <br>
+	Enter The Number To Be Added: <input type="text" id="Q2InputAdder"> <br>
+	Enter The Number Of Times To Add The Number: <input type="text" id="Q2InputTimes"> <br>
+	<button id="Q2Button" onclick="SumLoop()">Run Loop</button>
+	<br>
+	The result is  :<span id="result2"> </span>
+
+	<script>
+	//Add code here
+	function SumLoop(a,b,c){
+		var a = document.getElementById("Q2InputFirst").value;
+		var b = document.getElementById("Q2InputAdder").value;
+		var c = document.getElementById("Q2InputTimes").value;
+		for (var i = a; i>=0; i+=b){
+			console.log(i)
+			document.getElementById("result2").innerHTML += i + "</br>";
+			if (i > i*c) {break;}
+		}
+	}
+	</script>
+<br>
+<br>
+
+<!-- ----------------------------------------3rd Question -------------------------------------------
+This question will use an if/else or switch/case statement.  Clicking the button will change font 
+to red, the background color to yellow, the font size to 20px, font style to italics, font weight
+to bold and the text will change to NEW TEXT!!.  Clicking the button a second time will everything 
+back to what to it's original form. Use if/else or case statement.-->
+	<style>
+		#result3{
+		 color:black;
+		 background-color:white;
+		 font-size:12px;
+		 font-style:normal;
+		 font-weight:normal;
+				}
+	</style>
+
+	<h1>Question 3</h1>
+	<br>
+
+	<button id="Q3Button" onclick="ChangeIt()">Run Change</button>
+	<br>
+	The result is  :<span id="result3">This is the original text!</span>
+
+	<script>
+	//Add code here
+	function ChangeIt(){
+		var a = 0
+		while (a % 2) {
+		document.getElementById("result3").innerHTML = "NEW TEXT!!!"
+		document.getElementById("result3").style.color = "red"
+		document.getElementById("result3").style.backgroundColor = "yellow"
+		document.getElementById("result3").style.fontSize = "20px"
+		document.getElementById("result3").style.fontStyle = "italics"
+		document.getElementById("result3").style.fontWeight = "bold"
+		var a = a + 1
+		}
+		while (a % 1) {
+		document.getElementById("result3").innerHTML = "This is the original text!"
+		document.getElementById("result3").style.color = ""
+		document.getElementById("result3").style.backgroundColor = ""
+		document.getElementById("result3").style.fontSize = ""
+		document.getElementById("result3").style.fontStyle = ""
+		document.getElementById("result3").style.fontWeight = ""
+		var a = a + 1 
+		}
+	}
+	</script>
+<br>
+<br>
+</body>
+
+</html>
